@@ -1,0 +1,4 @@
+*.pdf
+/參考資料/*.pdf
+.git
+.gemini

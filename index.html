@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>運動禁藥與中草藥使用指南 ─ 互動式簡報</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #005f73;
+      --secondary: #0a9396;
+      --warning: #e63946;
+      --warning-dark: #b91c1c;
+      --warning-light: #fed7d7;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --card-bg: #f8fafc;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --text-muted: #94a3b8;
+      --font: 'Outfit', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      font-family: var(--font);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Presentation Wrapper */
+    .presentation-container {
+      width: 100%;
+      max-width: 1333px;
+      height: 750px;
+      background-color: var(--bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Progress Bar */
+    .progress-bar-container {
+      height: 6px;
+      background-color: var(--border);
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: var(--primary);
+      width: 12.5%;
+      transition: var(--transition);
+    }
+
+    /* Slides Box */
+    .slides-wrapper {
+      flex-grow: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateX(40px);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.8rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .slide-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-right: 1rem;
+    }
+
+    .slide-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Typography Utilities */
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: var(--text-sub);
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    .accent-text {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .warning-text {
+      color: var(--warning);
+      font-weight: 700;
+    }
+
+    /* Layout Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      flex-grow: 1;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      flex-grow: 1;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      flex-grow: 1;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+      border-color: var(--secondary);
+    }
+
+    .card.warning-card {
+      background-color: var(--warning-light);
+      border-color: var(--warning);
+    }
+
+    .card.warning-card:hover {
+      border-color: var(--warning-dark);
+    }
+
+    .card-title {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-title.teal-title {
+      color: var(--primary);
+    }
+
+    .card-title.red-title {
+      color: var(--warning);
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .card.warning-card .card-list li::before {
+      color: var(--warning);
+    }
+
+    /* Interactive Beaker & Slider Widget (Slide 4) */
+    .pool-simulator {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .pool-visual-box {
+      background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
+      border: 2px solid #0284c7;
+      border-radius: 8px;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pool-water-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background-color: rgba(14, 165, 233, 0.4);
+      transition: var(--transition);
+    }
+
+    .pool-water-wave.alert-mode {
+      background-color: rgba(230, 57, 70, 0.4);
+    }
+
+    .pool-label {
+      position: relative;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0369a1;
+      text-shadow: 0 1px 2px white;
+      z-index: 2;
+      transition: var(--transition);
+    }
+
+    .pool-label.alert-mode {
+      color: var(--warning-dark);
+      animation: blink 1s infinite alternate;
+    }
+
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    .range-input {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: var(--border);
+      outline: none;
+    }
+
+    .range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .range-input::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .range-input.alert-thumb::-webkit-slider-thumb {
+      background: var(--warning);
+    }
+
+    .pool-description-card {
+      background-color: var(--bg-alt);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      min-height: 100px;
+      transition: var(--transition);
+    }
+
+    .pool-description-card.alert-border {
+      border-left-color: var(--warning);
+      background-color: var(--warning-light);
+    }
+
+    /* Kinetic Chart Widget (Slide 5) */
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .chart-toggle-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-toggle {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      background-color: white;
+      border-radius: 20px;
+      font-family: var(--font);
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-sub);
+      transition: var(--transition);
+    }
+
+    .btn-toggle.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .bar-chart-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      position: relative;
+      margin-top: 1.5rem;
+    }
+
+    .bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+    }
+
+    .bar-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .bar-outer {
+      height: 24px;
+      background-color: var(--border);
+      border-radius: 4px;
+      width: 100%;
+      position: relative;
+    }
+
+    .bar-inner {
+      height: 100%;
+      width: 0%;
+      border-radius: 4px;
+      background-color: var(--secondary);
+      transition: width 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.8rem;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .bar-inner.safe {
+      background-color: var(--secondary);
+    }
+
+    .bar-inner.danger {
+      background-color: var(--warning);
+    }
+
+    /* Threshold Indicator Line in Chart */
+    .chart-threshold-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(10 / 45 * 100%); /* Threshold is 10, max value displayed is 45 */
+      width: 2px;
+      background-color: var(--warning);
+      border-style: dashed;
+      border-width: 0 0 0 2px;
+      z-index: 5;
+    }
+
+    .chart-threshold-label {
+      position: absolute;
+      top: -24px;
+      left: calc(10 / 45 * 100% - 70px);
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--warning);
+      background-color: var(--warning-light);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--warning);
+    }
+
+    /* Flowchart Grid for Slide 8 */
+    .flow-card-interactive {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow-card-interactive.active {
+      background-color: white;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+      transform: scale(1.05);
+    }
+
+    .flow-icon {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .flow-card-interactive.active .flow-icon {
+      color: var(--primary);
+    }
+
+    .flow-card-interactive.active:first-child .flow-icon {
+      color: var(--warning);
+    }
+
+    .flow-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .flow-desc-container {
+      margin-top: 2rem;
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      min-height: 120px;
+    }
+
+    .flow-desc-title {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    /* Controls Bar */
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      border-top: 1px solid var(--border);
+      background-color: #ffffff;
+      z-index: 10;
+    }
+
+    .btn-nav {
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--primary);
+      background-color: transparent;
+      color: var(--primary);
+      border-radius: 6px;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-nav:disabled {
+      border-color: var(--border);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dot.active {
+      background-color: var(--primary);
+      transform: scale(1.3);
+    }
+
+    /* Keyframes */
+    @keyframes blink {
+      0% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    /* Slide specific styles */
+    /* Cover page layout */
+    .cover-layout {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+
+    .cover-left-line {
+      width: 6px;
+      height: 250px;
+      background-color: var(--primary);
+      margin-right: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .cover-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cover-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .cover-subtitle {
+      font-size: 1.4rem;
+      color: var(--text-sub);
+    }
+
+    .cover-btn-start {
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-weight: 600;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(0, 95, 115, 0.2);
+    }
+
+    .cover-btn-start:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(10, 147, 150, 0.3);
+    }
+
+    /* Grid layouts details */
+    .abp-grid {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presentation-container">
+    
+    <!-- Top Progress Line -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    
+    <!-- Slides Space -->
+    <div class="slides-wrapper">
+      
+      <!-- Slide 1: Cover -->
+      <div class="slide active" id="slide-0">
+        <div class="cover-layout">
+          <div class="cover-left-line"></div>
+          <div class="cover-content">
+            <h1 class="cover-title">運動禁藥與中草藥使用指南</h1>
+            <p class="cover-subtitle">運動員的黃金防護與避雷指引</p>
+            <p class="lead" style="max-width: 600px; font-size: 1rem; color: var(--text-muted);">
+              本簡報基於 2026 WADA/CTADA 最新官方禁用與監控清單，剖析傳統中藥與科學中藥製劑的禁藥違規風險，並提供實務避雷工具。
+            </p>
+            <button class="cover-btn-start" onclick="goToSlide(1)">開始瀏覽簡報</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 2: Basics & Law -->
+      <div class="slide" id="slide-1">
+        <div class="slide-header">
+          <span class="slide-number">01</span>
+          <h2 class="slide-title">中草藥複雜性與運動禁藥之「嚴格責任」</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title teal-title">中草藥與科學中藥的特性</h3>
+            <ul class="card-list">
+              <li><strong>多成分複雜性：</strong>單味中藥含數百種化合物，複方成分相互交織，含量常因產地、炮製方法產生波動。</li>
+              <li><strong>濃縮放大效應：</strong>科學中藥濃縮顆粒在萃取過程中，會將活性及微量成分放大<strong>數倍至數十倍</strong>，增加檢出機率。</li>
+              <li><strong>草本安全誤區：</strong>「純天然」不等於「藥檢安全」，植物源性中藥往往包含天然生物鹼，具有隱性的禁藥違規風險。</li>
+            </ul>
+          </div>
+          <div class="card warning-card">
+            <h3 class="card-title red-title">反興奮劑之「嚴格責任原則」</h3>
+            <ul class="card-list" style="color: var(--text-main);">
+              <li><strong>客觀事實判定：</strong>只要運動員的樣本（尿液或血液）中驗出禁用物質或代謝物，即構成違規，無論是否故意。</li>
+              <li><strong>疏忽無法完全免責：</strong>在聽證會上，以「不知道中藥裡含有禁藥」或「信任中醫師開立的偏方」均無法作為完全免責理由。</li>
+              <li><strong>終極個人責任：</strong>運動員必須對所有進入自己體內的物質負起終極責任，切勿抱持僥倖心理服用未明成分藥物。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Reasons -->
+      <div class="slide" id="slide-2">
+        <div class="slide-header">
+          <span class="slide-number">02</span>
+          <h2 class="slide-title">運動員尋求中醫調理之三大臨床主因</h2>
+        </div>
+        <p class="lead" style="margin-bottom: 2rem;">
+          高強度競技訓練常伴隨疲勞累積與肌肉骨骼損傷，使運動員常尋求中草藥的整體調理：
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">01</div>
+            <h3 style="color: var(--primary);">運動後疲勞恢復</h3>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.8rem;">補氣活血、加速微循環</p>
+            <p style="font-size: 0.9rem;">
+              高強度訓練會導致中醫之「氣血兩虛」或「氣滯血瘀」。選手多用當歸、黃芪、人參、丹參等，以加速乳酸代謝並縮短肌肉疲勞恢復期。
+            </p>
+          </div>
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">02</div>
+            <h3 style="color: var(--primary);">慢性肌肉關節受傷</h3>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.8rem;">舒筋活血、消腫退炎</p>
+            <p style="font-size: 0.9rem;">
+              面對挫傷、拉傷、腰痛或慢性關節炎，選手常使用舒筋活血湯、獨活寄生湯等口服複方，或外貼麝香消炎貼布，以達到祛風通絡、消炎止痛的效果。
+            </p>
+          </div>
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">03</div>
+            <h3 style="color: var(--primary);">免疫力與日常調理</h3>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.8rem;">益氣固表、提升體質適應</p>
+            <p style="font-size: 0.9rem;">
+              在賽前備賽或面臨頻繁出國參賽時，高壓會削弱免疫力。選手多服用玉屏風散等調理脾胃，預防感冒及維持生理狀態的恆定。
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Higenamine Simulator -->
+      <div class="slide" id="slide-3">
+        <div class="slide-header">
+          <span class="slide-number">03</span>
+          <h2 class="slide-title">禁用物質專題：去甲烏藥鹼 (Higenamine) 稀釋模擬</h2>
+        </div>
+        <div class="grid-2">
+          <!-- Simulator widget left -->
+          <div class="pool-simulator">
+            <h3 style="color: var(--primary);">奧運泳池稀釋模擬器</h3>
+            <p style="font-size: 0.95rem;">拖動下方滑動條，模擬將禁藥成分稀釋入標準奧運游泳池中的濃度變化：</p>
+            
+            <div class="slider-container">
+              <div class="slider-label-row">
+                <span>純水狀態</span>
+                <span id="slider-val-display" style="color: var(--warning); font-weight: 700;">0.0 ng/mL</span>
+                <span>WADA 閾值 10.0 ng/mL</span>
+              </div>
+              <input type="range" min="0" max="10" step="0.5" value="0" class="range-input" id="pool-slider">
+            </div>
+            
+            <div class="pool-visual-box">
+              <div class="pool-water-wave" id="pool-wave"></div>
+              <div class="pool-label" id="pool-label">0.0 ng/mL - 安全無殘留</div>
+            </div>
+            
+            <div class="pool-description-card" id="pool-desc-card">
+              請拖動滑動條開始模擬。
+            </div>
+          </div>
+          
+          <!-- Information right -->
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="color: var(--warning); display: flex; align-items: center; gap: 0.5rem;">
+              <span>❌</span> 含有去甲烏藥鹼與前驅物之高風險來源
+            </h3>
+            <ul class="card-list" style="margin-top: 1rem;">
+              <li><strong>蓮子心：</strong>去甲烏藥鹼含量極高。運動員只要在賽前<strong>喝下一杯蓮子心茶</strong>，即會在尿檢中呈現嚴重陽性超標。</li>
+              <li><strong>附子、細辛、吳茱萸：</strong>為常用溫裡及散寒止痛藥。含有天然去甲烏藥鹼成分。</li>
+              <li><strong>釋迦：</strong>番荔枝科水果，經證實含有天然去甲烏藥鹼。賽前應避免大量食用。</li>
+              <li><strong>烏藥鹼 (Coclaurine) 代謝前驅物：</strong>Coclaurine 本身未禁用，但在人體內會轉化為 Higenamine。富含於<strong>肉桂、大棗、黃柏</strong>等藥材中，導致常用中藥複方（如葛根湯、十全大補湯）面臨潛在風險。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Ephedrine Kinetics -->
+      <div class="slide" id="slide-4">
+        <div class="slide-header">
+          <span class="slide-number">04</span>
+          <h2 class="slide-title">賽內興奮劑：麻黃素累積排除動力學與陽性風險</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 4rem; font-weight: 700; color: var(--warning); line-height: 1.1;">10 μg/mL</div>
+            <p style="font-weight: 700; color: var(--text-main); margin-bottom: 1rem;">WADA 規定的麻黃鹼尿檢判定陽性臨界點</p>
+            <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">
+              <strong>累積效應「溫水煮青蛙」的臨床警訊：</strong>
+            </p>
+            <p style="font-size: 0.95rem;">
+              科學中藥如葛根湯或小青龍湯，單次服用（2.5g）時尿液中麻黃鹼峰值在 3.9 ~ 4.3 μg/mL 之間，低於禁用閾值。然而，若選手<strong>連續服用 3 天（一日三次）</strong>，體內的藥物便會累積，排泄濃度將會呈數倍爆發，嚴重超出禁藥限制。
+            </p>
+          </div>
+          
+          <!-- Interactive chart right -->
+          <div class="chart-container">
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">服藥模式對尿液麻黃鹼濃度之影響</h3>
+            
+            <div class="chart-toggle-row">
+              <button class="btn-toggle active" id="btn-single" onclick="updateChart('single')">單次服用 (2.5g)</button>
+              <button class="btn-toggle" id="btn-multi" onclick="updateChart('multi')">連續服用 3 天 (一日三次)</button>
+            </div>
+            
+            <div class="bar-chart-body">
+              <div class="chart-threshold-line"></div>
+              <div class="chart-threshold-label">禁用閾值 10.0 μg/mL</div>
+              
+              <div class="bar-item">
+                <span class="bar-label">小青龍湯 (含麻黃、半夏)</span>
+                <div class="bar-outer">
+                  <div class="bar-inner safe" id="bar-xql" style="width: 8.6%;">3.9 μg/mL</div>
+                </div>
+              </div>
+              
+              <div class="bar-item">
+                <span class="bar-label">葛根湯 (含麻黃、肉桂、大棗)</span>
+                <div class="bar-outer">
+                  <div class="bar-inner safe" id="bar-ggt" style="width: 9.6%;">4.3 μg/mL</div>
+                </div>
+              </div>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+              * 數據基礎源於 2026 最新藥代動力學排除臨床數據，100% 寬度對應 45.0 μg/mL。
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Prohibited lists & Monitoring -->
+      <div class="slide" id="slide-5">
+        <div class="slide-header">
+          <span class="slide-number">05</span>
+          <h2 class="slide-title">其它確定禁用物質與 2026 監控計畫重點</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="color: var(--warning); margin-bottom: 1rem;">❌ 確定為禁用物質之中藥</h3>
+            <ul class="card-list">
+              <li><strong>鹿麝香 (Moschus) ─ S1 同化性物質：</strong>含有天然雄性素及其衍生物。外用貼布亦可透過皮膚吸收，導致尿液雄性素超標。</li>
+              <li><strong>地膚子、防己 ─ S5 利尿劑與遮蔽劑：</strong>具強效利尿作用。會稀釋尿液中其他成分，被判定為遮蔽劑而違規。</li>
+              <li><strong>火麻仁 (Cannabis Semen) ─ S8 大麻素：</strong>中藥常作潤腸通便。因種子製程中易遭大麻葉或花粉交叉污染，賽內被禁用。</li>
+              <li><strong>馬錢子 ─ S6 興奮劑：</strong>含有劇毒番木鼈鹼，能興奮脊髓反射，賽內嚴格禁用。</li>
+            </ul>
+          </div>
+          
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📈 2026 WADA 監控計畫清單</h3>
+            <ul class="card-list">
+              <li><strong>咖啡因 (Caffeine) 與尼古丁：</strong>目前不禁用，但在賽內受到高度監控，以防範高劑量濫用行為。</li>
+              <li><strong>辛弗林 (Synephrine)：</strong>理氣藥中（如枳實、枳殼）的天然成分，因具擬交感神經興奮作用，目前處於賽內監控中。</li>
+              <li><strong>Semaglutide (減重成分) 監控：</strong>部分宣稱快速減重的草本減肥丸常摻雜西藥成分，WADA 全時段監控 GLP-1 受體促效劑之濫用與摻假。</li>
+              <li><strong>Hypoxen (抗缺氧物質)：</strong>WADA 密切監控其在耐力運動中的非醫療目的濫用。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Future Challenges & ABP -->
+      <div class="slide" id="slide-6">
+        <div class="slide-header">
+          <span class="slide-number">06</span>
+          <h2 class="slide-title">未來挑戰：草本污染率與生物護照 (ABP) 干擾</h2>
+        </div>
+        <div class="grid-2">
+          <!-- Left Statistics -->
+          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 4rem; font-weight: 700; color: var(--warning); line-height: 1.1;">9% ~ 15%</div>
+              <p style="font-weight: 700; color: var(--text-main); margin-bottom: 1rem;">全球膳食補充劑與草本製品的非法摻假率</p>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                根據 2026 最新系統性回顧報告，市售標榜增肌、燃脂、提神的膳食補充劑中，約有 1 成以上含有未標示的 WADA 禁用成分（如 SARM、合成類固醇與合成興奮劑），構成了重大的運動禁藥威脅。
+              </p>
+            </div>
+            
+            <div style="background-color: var(--warning-light); border-left: 4px solid var(--warning); padding: 0.8rem 1rem; border-radius: 4px; font-size: 0.9rem; margin-top: 1rem;">
+              <strong>💡 現實世界類比：</strong> 每 10 瓶標榜「純天然」的補充劑中，就有 1 瓶以上含隱性禁藥，不可不慎！
+            </div>
+          </div>
+          
+          <!-- Right ABP and awareness -->
+          <div class="abp-grid">
+            <div class="card" style="padding: 1.2rem 1.5rem;">
+              <h3 style="color: var(--primary); margin-bottom: 0.6rem;">🩸 生物護照 (ABP) 血液學干擾</h3>
+              <p style="font-size: 0.9rem;">
+                <strong>當歸、黃芪、丹參</strong>等中藥能促進骨髓造血。連續服用 14 天後，選手的網狀紅血球百分比（RET%）會呈現顯著的生理上升。此生理學波動極易被 ABP 演算法判定為「atypical（異常）」，懷疑選手使用了 EPO（促紅血球生成素）或進行了輸血。
+              </p>
+            </div>
+            
+            <div class="card" style="padding: 1.2rem 1.5rem;">
+              <h3 style="color: var(--primary); margin-bottom: 0.6rem;">⚠️ 醫療防護人員的認知盲區</h3>
+              <p style="font-size: 0.9rem;">
+                學術調查顯示，<strong>超過 40% 的臨床醫藥專家</strong>不知道「去甲烏藥鹼」是禁用物質。如果缺乏運動禁藥專業知識的醫師開立中藥，選手將面臨極大的誤服違規風險，必須推廣專業的守門人系統。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Interactive Checklist (問、查、換、申) -->
+      <div class="slide" id="slide-7">
+        <div class="slide-header">
+          <span class="slide-number">07</span>
+          <h2 class="slide-title">實務防護黃金口訣：「問、查、換、申」守門人系統</h2>
+        </div>
+        <p style="margin-bottom: 1.5rem;">
+          點擊下方各個關鍵步驟，查看運動員在就醫用藥時應落實的防護動作：
+        </p>
+        <div class="grid-4" style="flex-grow: 0; margin-bottom: 1.5rem;">
+          <div class="flow-card-interactive active" onclick="showFlowDetails('wen', this)">
+            <div class="flow-icon">問</div>
+            <div class="flow-title">主動告知身份</div>
+          </div>
+          <div class="flow-card-interactive" onclick="showFlowDetails('cha', this)">
+            <div class="flow-icon">查</div>
+            <div class="flow-title">官方系統核對</div>
+          </div>
+          <div class="flow-card-interactive" onclick="showFlowDetails('huan', this)">
+            <div class="flow-icon">換</div>
+            <div class="flow-title">尋求安全替代</div>
+          </div>
+          <div class="flow-card-interactive" onclick="showFlowDetails('shen', this)">
+            <div class="flow-icon">申</div>
+            <div class="flow-title">治療用途豁免</div>
+          </div>
+        </div>
+        
+        <!-- Interactive details box -->
+        <div class="flow-desc-container">
+          <div class="flow-desc-title" id="flow-title-display">問 ➔ 主動告知身份</div>
+          <div id="flow-desc-display" style="font-size: 0.95rem; line-height: 1.6;">
+            <strong>執行要點：</strong>就醫時，運動員必須第一時間向主治醫師與藥師說明：<strong>「我是接受運動禁藥檢測的運動員，請幫我避開 WADA 禁用清單中的所有成分。」</strong>以引導醫療人員開立無風險之處方。
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Controls footer -->
+    <div class="controls">
+      <button class="btn-nav" id="btn-prev" onclick="prevSlide()" disabled>上一頁</button>
+      
+      <div class="slide-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+        <div class="dot" onclick="goToSlide(3)"></div>
+        <div class="dot" onclick="goToSlide(4)"></div>
+        <div class="dot" onclick="goToSlide(5)"></div>
+        <div class="dot" onclick="goToSlide(6)"></div>
+        <div class="dot" onclick="goToSlide(7)"></div>
+      </div>
+      
+      <button class="btn-nav" id="btn-next" onclick="nextSlide()">下一頁</button>
+    </div>
+    
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 8;
+    
+    const slider = document.getElementById('pool-slider');
+    const wave = document.getElementById('pool-wave');
+    const poolLabel = document.getElementById('pool-label');
+    const descCard = document.getElementById('pool-desc-card');
+    const valDisplay = document.getElementById('slider-val-display');
+    
+    // Slider Interactive Logic (Slide 4)
+    slider.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      valDisplay.textContent = `${val.toFixed(1)} ng/mL`;
+      
+      // Update water wave height and alert styles
+      wave.style.height = `${30 + val * 5}%`;
+      
+      if (val >= 10) {
+        wave.classList.add('alert-mode');
+        poolLabel.classList.add('alert-mode');
+        slider.classList.add('alert-thumb');
+        descCard.classList.add('alert-border');
+        
+        poolLabel.textContent = `🚨 10.0 ng/mL - 構成禁藥違規！`;
+        descCard.innerHTML = `<strong>WADA 陽性判定閾值達標！</strong><br>10 ng/mL 稀釋比率相當於在<strong>一座奧運泳池（250 萬公升）中只滴入 0.025 毫升（半滴水）</strong>的去甲烏藥鹼。選手即使飲用一杯蓮子心茶，也會在數小時內突破此紅線。`;
+      } else {
+        wave.classList.remove('alert-mode');
+        poolLabel.classList.remove('alert-mode');
+        slider.classList.remove('alert-thumb');
+        descCard.classList.remove('alert-border');
+        
+        if (val === 0) {
+          poolLabel.textContent = `0.0 ng/mL - 純水無殘留`;
+          descCard.textContent = `奧運泳池純淨，無檢出禁用物質。拖動滑動條模擬去甲烏藥鹼滴入泳池的微觀濃度。`;
+        } else if (val < 5) {
+          poolLabel.textContent = `${val.toFixed(1)} ng/mL - 低於判定限`;
+          descCard.innerHTML = `<strong>微量檢出狀態：</strong><br>當前濃度為 ${val.toFixed(1)} ng/mL，雖未達處罰線，但去甲烏藥鹼在選手體內的代謝迅速，微量殘留通常意味著近期服用過高風險草藥，已進入黃色安全警示區。`;
+        } else {
+          poolLabel.textContent = `${val.toFixed(1)} ng/mL - 接近判定限`;
+          descCard.innerHTML = `<strong>高風險灰色地帶：</strong><br>當前濃度已接近 10 ng/mL，代表選手隨時有在藥檢中呈現陽性反應的風險。此時體內已含有約 0.015 毫升的 Higenamine。`;
+        }
+      }
+    });
+    
+    // Bar Chart Interactive Logic (Slide 5)
+    function updateChart(mode) {
+      const btnSingle = document.getElementById('btn-single');
+      const btnMulti = document.getElementById('btn-multi');
+      const barXql = document.getElementById('bar-xql');
+      const barGgt = document.getElementById('bar-ggt');
+      
+      if (mode === 'single') {
+        btnSingle.classList.add('active');
+        btnMulti.classList.remove('active');
+        
+        // Single values scaled to max 45.0 (3.9 and 4.3)
+        barXql.style.width = `${(3.9 / 45) * 100}%`;
+        barXql.textContent = '3.9 μg/mL';
+        barXql.className = 'bar-inner safe';
+        
+        barGgt.style.width = `${(4.3 / 45) * 100}%`;
+        barGgt.textContent = '4.3 μg/mL';
+        barGgt.className = 'bar-inner safe';
+      } else {
+        btnSingle.classList.remove('active');
+        btnMulti.classList.add('active');
+        
+        // Multi values scaled (13.73 and 39.03)
+        barXql.style.width = `${(13.73 / 45) * 100}%`;
+        barXql.textContent = '13.73 μg/mL ⚠️';
+        barXql.className = 'bar-inner danger';
+        
+        barGgt.style.width = `${(39.03 / 45) * 100}%`;
+        barGgt.textContent = '39.03 μg/mL 🚨';
+        barGgt.className = 'bar-inner danger';
+      }
+    }
+    
+    // Flowchart Interactive Logic (Slide 8)
+    const flowData = {
+      wen: {
+        title: "問 ➔ 主動告知身份",
+        desc: "<strong>執行要點：</strong>就醫時，運動員必須第一時間向主治醫師與藥師說明：<strong>「我是接受運動禁藥檢測的運動員，請幫我避開 WADA 禁用清單中的所有成分。」</strong>以引導醫療人員開立無風險之處方。"
+      },
+      cha: {
+        title: "查 ➔ 官方系統核對",
+        desc: "<strong>執行要點：</strong>在用藥前，將處方中的每一味中藥單方、複方名稱，手動輸入到<strong>中華運動禁藥防制基金會 (CTADA)</strong> 的「適用藥品查詢系統」中，確認是否有禁用成分標記或潛在警示。"
+      },
+      huan: {
+        title: "換 ➔ 尋求安全替代",
+        desc: "<strong>執行要點：</strong>若查詢結果顯示含有「禁用」或「高風險」藥材（如小青龍湯含有麻黃），應要求中醫師<strong>更換為同療效但安全的替代處方</strong>（如風寒感冒改用桂枝湯或西藥安全成藥）。"
+      },
+      shen: {
+        title: "申 ➔ 治療用途豁免",
+        desc: "<strong>執行要點：</strong>若因急重傷病，臨床上必須使用含有禁用成分的藥物，且無其他安全替代方案時，必須在<strong>服藥前依法向 CTADA 申請「治療用途豁免 (TUE)」</strong>。獲得官方批准後方能使用，否則一律視同違規。"
+      }
+    };
+    
+    function showFlowDetails(key, element) {
+      // Toggle active classes for elements
+      const cards = document.querySelectorAll('.flow-card-interactive');
+      cards.forEach(c => c.classList.remove('active'));
+      element.classList.add('active');
+      
+      // Update display details
+      const titleDisplay = document.getElementById('flow-title-display');
+      const descDisplay = document.getElementById('flow-desc-display');
+      titleDisplay.textContent = flowData[key].title;
+      descDisplay.innerHTML = flowData[key].desc;
+    }
+    
+    // Slide Navigation Core Logic
+    function updateSlide() {
+      // Show/Hide slides
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, idx) => {
+        if (idx === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Update Progress Bar
+      const progressBar = document.getElementById('progress-bar');
+      progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+      
+      // Update dots
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Update Nav Buttons
+      document.getElementById('btn-prev').disabled = (currentSlide === 0);
+      document.getElementById('btn-next').disabled = (currentSlide === totalSlides - 1);
+      
+      // Trigger animations for chart/slider reset if entering specific slides
+      if (currentSlide === 3) {
+        // Reset slider to 0 to encourage user interaction
+        slider.value = 0;
+        slider.dispatchEvent(new Event('input'));
+      } else if (currentSlide === 4) {
+        // Trigger default chart mode animation
+        updateChart('single');
+      }
+    }
+    
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+    
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateSlide();
+    }
+    
+    // Key bindings (Left/Right arrow keys)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Initialize display
+    updateSlide();
+  </script>
+</body>
+</html>
